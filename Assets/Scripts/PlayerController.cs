@@ -9,20 +9,29 @@ public class PlayerController : MonoBehaviour
 {
     public InputAction MoveAction;
 
+    Rigidbody2D rigidbody2d;
+
+    Vector2 move;
+
     void Start()
     {
         MoveAction.Enable();
+
+        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     
     void Update()
     {
-        Vector2 Move = MoveAction.ReadValue<Vector2>();
+        move = MoveAction.ReadValue<Vector2>();
 
-        Debug.Log(Move);
+        Debug.Log(move);
+    }
 
-        Vector2 Position = (Vector2)transform.position + Move * 3.0f * Time.deltaTime;
-        transform.position = Position;
+    void FixedUpdate()
+    {
+        Vector2 position = (Vector2)rigidbody2d.position + move * 3.0f * Time.deltaTime;
 
+        rigidbody2d.MovePosition(position);
     }
 }
