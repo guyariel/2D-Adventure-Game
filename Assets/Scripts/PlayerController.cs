@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     int currentHealth = 1;
 
+    public int health { get { return currentHealth; } }
+
     public float characterSpeed = 3.0f;
 
     void Start()
@@ -30,15 +32,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move = MoveAction.ReadValue<Vector2>();
-
-        //Debug.Log(move);
-    }
-
-    public void ChangeHealth (int amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-
-        Debug.Log(currentHealth + "/" + maxHealth);
     }
 
     void FixedUpdate()
@@ -46,5 +39,12 @@ public class PlayerController : MonoBehaviour
         Vector2 position = (Vector2)rigidbody2d.position + move * characterSpeed * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
