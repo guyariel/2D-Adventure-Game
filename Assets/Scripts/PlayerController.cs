@@ -8,29 +8,37 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public InputAction MoveAction;
-
     Rigidbody2D rigidbody2d;
-
     Vector2 move;
 
     public int maxHealth = 5;
-
-    int currentHealth = 1;
-
+    int currentHealth;
     public int health { get { return currentHealth; } }
-
     public float characterSpeed = 3.0f;
+
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float damageCoolDown;
+
 
     void Start()
     {
         MoveAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
-
-        //currentHealth = maxHealth;
+        currentHealth = maxHealth;
     }
     
     void Update()
     {
+        if (isInvincible)
+        {
+            damageCoolDown -= Time.deltaTime;
+            if (damageCoolDown < 0)
+            {
+                isInvincible = false;
+            }
+         }
+
         move = MoveAction.ReadValue<Vector2>();
     }
 
@@ -43,6 +51,16 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            damageCoolDown = timeInvincible;
+        }
+
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
         Debug.Log(currentHealth + "/" + maxHealth);
