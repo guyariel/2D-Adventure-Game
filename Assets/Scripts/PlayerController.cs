@@ -7,15 +7,18 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    // Variables related to player character movement
     public InputAction MoveAction;
     Rigidbody2D rigidbody2d;
     Vector2 move;
 
+    // Variables related to the health system
     public int maxHealth = 5;
     int currentHealth;
     public int health { get { return currentHealth; } }
     public float characterSpeed = 3.0f;
 
+    // Variables related to temporary invincibility
     public float timeInvincible = 2.0f;
     bool isInvincible;
     float damageCoolDown;
