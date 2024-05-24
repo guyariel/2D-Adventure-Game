@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
 
     // Variables related to the health system
-    public int maxHealth = 5;
+    public int maxHealth = 3;
     int currentHealth;
     public int health { get { return currentHealth; } }
     public float characterSpeed = 3.0f;

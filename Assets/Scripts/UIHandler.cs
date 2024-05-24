@@ -26,6 +26,6 @@ public class UIHandler : MonoBehaviour
 
     public void SetHealthValue(float percentage)
     {
-        m_Healthbar.style.width = Length.Percent(percentage * 100.0f);
+        m_Healthbar.style.width = Length.Percent(Mathf.Clamp(percentage, 0f, 1f) * 100.0f);
     }
 }
