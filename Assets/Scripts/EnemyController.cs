@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
 
     Animator animator;
 
+    bool aggressive = true;
+
 
     void Start()
     {
@@ -26,6 +28,11 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!aggressive)
+        {
+            return;
+        }
+
         Timer -= Time.deltaTime;
 
         if (Timer < 0)
@@ -59,5 +66,12 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+    }
+
+    public void Fix()
+    {
+        aggressive = false;
+        rigidBody2D.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
