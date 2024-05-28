@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2633507778728448260}
   - component: {fileID: 8827051054355868642}
   - component: {fileID: 8926636046421652212}
+  - component: {fileID: 1060950512658205474}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -189,7 +190,18 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   maxHealth: 5
-  characterSpeed: 3
+  characterSpeed: 5
+  timeInvincible: 2
+  projectilePrefab: {fileID: 8922186852065490166, guid: 19718920156c5480eb65cfbe1b7833b7, type: 3}
+  launchAction:
+    m_Name: Launch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b56fc84d-aeb0-49e6-b180-78f76e6e7b3e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!50 &8827051054355868642
 Rigidbody2D:
   serializedVersion: 4
@@ -249,10 +261,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.8678176}
+  m_Offset: {x: -0.000000059604645, y: 0.3260212}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 1}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.77, y: 2.21}
     newSize: {x: 0.77, y: 2.21}
     adaptiveTilingThreshold: 0.5
@@ -260,5 +272,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.77, y: 0.6843648}
+  m_Size: {x: 0.7950672, y: 0.703681}
   m_EdgeRadius: 0
+--- !u!95 &1060950512658205474
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912484134670414941}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34d36e1bead33a942930d6f3d41aa8fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

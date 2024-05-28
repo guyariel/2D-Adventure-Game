@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -194,7 +194,7 @@ TextureImporter:
       name: DuckoSheet_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 514
         y: 2304
         width: 256
         height: 256
@@ -384,7 +384,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 1792
+        y: 1798
         width: 256
         height: 256
       alignment: 7
@@ -489,7 +489,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1280
+        y: 1286
         width: 256
         height: 256
       alignment: 7
@@ -720,7 +720,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 768
+        y: 774
         width: 256
         height: 256
       alignment: 7
@@ -862,6 +862,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PlayerCharacterSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 976
+        height: 2260
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8b96aa98f984eb489fe47fbfff2ed6
+      internalID: -1748047081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -907,6 +928,7 @@ TextureImporter:
       DuckoSheet_7: 1094869957
       DuckoSheet_8: -1309261130
       DuckoSheet_9: 595375070
+      PlayerCharacterSheet_0: -1748047081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

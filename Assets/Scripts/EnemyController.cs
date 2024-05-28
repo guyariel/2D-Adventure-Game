@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
     public float speed = 1.0f;
     public bool vertical;
     Rigidbody2D rigidBody2D;
-    Vector2 position;
 
     public float changeTime = 3.0f;
     float Timer;
@@ -27,7 +26,15 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        position = rigidBody2D.position;
+        Timer -= Time.deltaTime;
+
+        if (Timer < 0)
+        {
+            direction = -direction;
+            Timer = changeTime;
+        }
+
+        Vector2 position = rigidBody2D.position;
 
         if (vertical)
         {
@@ -44,24 +51,13 @@ public class EnemyController : MonoBehaviour
         rigidBody2D.MovePosition(position);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
         if (player != null)
         {
             player.ChangeHealth(-1);
-        }
-    }
-
-    void Update()
-    {
-        Timer -= Time.deltaTime;
-
-        if (Timer < 0)
-        {
-            direction = -direction;
-            Timer = changeTime;
         }
     }
 }
