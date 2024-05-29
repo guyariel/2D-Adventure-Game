@@ -195,12 +195,37 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8922186852065490166, guid: 19718920156c5480eb65cfbe1b7833b7, type: 3}
   launchAction:
     m_Name: Launch
-    m_Type: 0
-    m_ExpectedControlType: 
+    m_Type: 1
+    m_ExpectedControlType: Button
     m_Id: b56fc84d-aeb0-49e6-b180-78f76e6e7b3e
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 192dcfdf-b9c3-4cac-80a4-88e6107ef023
+      m_Path: <Keyboard>/c
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Launch
+      m_Flags: 0
+    m_Flags: 0
+  talkAction:
+    m_Name: Talk
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: f4db1942-4311-4078-9a87-3e222fdf040e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a2724cae-ecc9-4c09-bedd-4217794730be
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Talk
+      m_Flags: 0
     m_Flags: 0
 --- !u!50 &8827051054355868642
 Rigidbody2D:

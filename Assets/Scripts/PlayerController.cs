@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     public InputAction launchAction;
 
+    public InputAction talkAction;
+
     void Start()
     {
         MoveAction.Enable();
@@ -38,8 +40,10 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         launchAction.Enable();
         launchAction.performed += Launch;
+        talkAction.Enable();
+        talkAction.performed += FindFriend;
     }
-    
+
     void Update()
     {
         move = MoveAction.ReadValue<Vector2>();
@@ -100,5 +104,20 @@ public class PlayerController : MonoBehaviour
         projectile.Launch(moveDirection, 400);
 
         animator.SetTrigger("Launch");
+    }
+
+    void FindFriend(InputAction.CallbackContext context)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("NPC"));
+
+        if (hit.collider != null)
+        {
+            NPC character = hit.collider.GetComponent<NPC>();
+
+            if (character != null)
+            {
+                UIHandler.instance.DisplayDialogue();
+            }
+        }
     }
 }
