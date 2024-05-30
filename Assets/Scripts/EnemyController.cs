@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
 
     bool aggressive = true;
 
+    AudioSource audio;
+
 
     void Start()
     {
@@ -24,6 +26,8 @@ public class EnemyController : MonoBehaviour
         Timer = changeTime;
 
         animator = GetComponent<Animator>();
+
+        audio = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -73,5 +77,6 @@ public class EnemyController : MonoBehaviour
         aggressive = false;
         rigidBody2D.simulated = false;
         animator.SetTrigger("Fixed");
+        audio.Stop();
     }
 }

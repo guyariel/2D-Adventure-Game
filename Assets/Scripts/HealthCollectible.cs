@@ -6,6 +6,8 @@ public class HealthCollectible : MonoBehaviour
 {
     public int healthIncrease;
 
+    public AudioClip collectedClip;
+
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -15,6 +17,7 @@ public class HealthCollectible : MonoBehaviour
         {
             controller.ChangeHealth(healthIncrease);
             Destroy(gameObject);
+            controller.PlaySound(collectedClip);
         }
     }
 }

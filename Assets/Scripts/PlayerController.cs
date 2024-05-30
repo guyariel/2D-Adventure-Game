@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     public InputAction talkAction;
 
+    AudioSource audioSource;
+
     void Start()
     {
         MoveAction.Enable();
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         launchAction.performed += Launch;
         talkAction.Enable();
         talkAction.performed += FindFriend;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -119,5 +122,10 @@ public class PlayerController : MonoBehaviour
                 UIHandler.instance.DisplayDialogue();
             }
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
